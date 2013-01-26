@@ -1,0 +1,52 @@
+define table bla having fields(int integer, date Date);
+define table bla1 having fields(bla1 integer, bla2 integer);
+define table all having fields(int integer, date date, bool boolean, str varchar, real real);
+print dictionary;
+insert (42, '12/21/2012', true, 'end of world', 666.666) into all;
+insert (22, '12/12/2012') into bla;
+insert (22) into notable;
+print dictionary;
+exit;
+
+define table all having fields(int integer, date date, bool boolean, str varchar, real real);
+print dictionary;
+insert (42, '12/21/2012', true, 'end of world', 666.666) into all;
+insert (10, '12/21/2012', true, 'end of world', 666.666) into all;
+delete all where int > 40;
+
+define table new having fields(real real);
+insert(66.6) into new;
+
+define table comparable1 having fields(int integer, double real);
+insert (10, 22.3) into comparable1;
+insert (10, 35.5) into comparable1;
+insert (10, 234.2) into comparable1;
+insert (10, 2344.2) into comparable1;
+insert (10, 75.6) into comparable1;
+update comparable1 set double = 13.37 where double > 100;
+update comparable1 set double = 13.37 where double > 100;
+insert (10, 22.3) into comparable1;
+update comparable1 set double = 13.37 where double > 100;
+insert (10, 22.3) into comparable1;
+update comparable1 set double = 13.37 where double > 100;
+insert (10, 22.3) into comparable1;
+update comparable1 set double = 13.37 where double > 100;
+insert (10, 22.3) into comparable1;
+insert (10, 22.3) into comparable1;
+insert (10, 35.5) into comparable1;
+insert (10, 234.2) into comparable1;
+insert (10, 2344.2) into comparable1;
+insert (10, 75.6) into comparable1;
+update comparable1 set int = 400;
+print comparable1;
+print comparable1;
+
+define table comparable2 having fields(int1 integer, double1 real);
+insert (10, 54.3) into comparable2;
+insert (10, 22.3) into comparable2;
+project comparable1 over int;
+print dictionary;
+
+union comparable1 and comparable2; 
+minus comparable1 and comparable2; 
+intersect comparable1 and comparable2;
